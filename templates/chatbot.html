@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="card">
+<div class="text-center">
+<h2><B>CHATBOT ASSISTANT🤖</B></h2>
+<p><B>Ask a question to get an instant response.</B></p>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; margin-top: 1.5rem;">
+<div>
+<form method="POST" action="{{ url_for('chatbot') }}">
+<input type="text" name="message" placeholder="Ask me anything..." required>
+<button type="submit" class="btn">Send</button>
+</form>
+</div>
+<div style="text-align: center; background-color: var(--lavender-bg); padding: 1.5rem; border-radius: 8px;">
+<h4><B>Bot Response</B></h4>
+{% if response %}
+<p>{{ response }}</p>
+{% else %}
+<p style="color: #5b5959;">Your response will appear here</p>
+{% endif %}
+</div>
+</div>
+</div>
+
+<div class="text-center" style="margin-top: 2rem;">
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="width: auto;">Return to Dashboard</a>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="text-center">
+<h2>Comparison Results</h2>
+<p>Showing prices for: <strong>{{ product }}</strong></p>
+</div>
+<div class="card">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+<div class="text-center">
+<h4>Croma</h4>
+{% if croma_name %}
+<h5>{{ croma_name }}</h5>
+<p style="font-size: 1.8rem; font-weight: 600; color: var(--lavender-accent);">₹{{ "%.2f"|format(croma_price) }}</p>
+<a href="{{ croma_url }}" target="_blank" class="btn" style="width: auto;">View Product</a>
+{% else %}
+<p>❌ Product not found</p>
+{% endif %}
+</div>
+<div class="text-center">
+<h4>Flipkart</h4>
+{% if flipkart_name %}
+<h5>{{ flipkart_name }}</h5>
+<p style="font-size: 1.8rem; font-weight: 600; color: var(--lavender-accent);">₹{{ "%.2f"|format(flipkart_price) }}</p>
+<a href="{{ flipkart_url }}" target="_blank" class="btn" style="width: auto;">View Product</a>
+{% else %}
+<p>❌ Product not found</p>
+{% endif %}
+</div>
+</div>
+{% if recommendation %}
+<div style="margin-top:2rem; padding: 1.5rem; border-radius: 8px; background-color: #f8e8f5; border: 1px solid var(--lavender-accent); text-align: center;">
+<h3>Best Deal 🎉</h3>
+<p>We recommend buying from <strong>{{ recommendation.site }}</strong> for ₹{{ "%.2f"|format(recommendation.price) }}</p>
+<p>You’ll save ₹{{ "%.2f"|format(recommendation.savings) }}!</p>
+<a href="{{ recommendation.url }}" target="_blank" class="btn" style="width: auto;">Buy Now</a>
+</div>
+{% endif %}
+</div>
+
+<div class="text-center" style="margin-top: 2rem;">
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="width: auto;">Return to Dashboard</a>
+</div>
+{% endblock %}

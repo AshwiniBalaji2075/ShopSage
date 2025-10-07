@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=12.0">
+<title>Login or Register - ShopSage</title>
+</head>
+<body class="login-page-body">
+
+<div class="login-container">
+    <div class="login-promo">
+        <svg class="promo-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
+        </svg>
+        <h1><b>ShopSage🛍️🛒</b></h1>
+        <p><b>Your intelligent shopping assistant for smarter purchases😎👍.</b></p>
+    </div>
+
+    <div class="login-form-wrapper">
+        <form id="auth-form" action="{{url_for('login')}}" method="post">
+            <h2><b>WELCOME BACK😊</b></h2>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <button type="submit" class="btn">Log In</button>
+                <button type="button" class="btn" onclick="registerUser()" style="background-color: rgb(93, 10, 97);">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function registerUser() {
+const form = document.getElementById('auth-form');
+form.action = "{{url_for('register')}}";
+form.submit();
+}
+</script>
+
+</body>
+</html>

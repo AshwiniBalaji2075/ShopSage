@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="text-center">
+    <h2><b>Active Price Trackings</b></h2>
+</div>
+
+{% if trackings %}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PRODUCT</th>
+                <th>CURRENT PRICE</th>
+                <th>DESIRED PRICE</th>
+                <th>EMAIL</th>
+                <th>ADDED ON</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tracking in trackings %}
+            <tr>
+                <td>
+                    {% if tracking.product_name %}
+                        {{ tracking.product_name }}
+                    {% else %}
+                        <a href="{{ tracking.url }}" target="_blank">View Product</a>
+                    {% endif %}
+                </td>
+                <td>₹{{ tracking.current_price }}</td>
+                <td>₹{{ tracking.desired_price }}</td>
+                <td>{{ tracking.email }}</td>
+                <td>{{ tracking.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="card text-center">
+    <p>No active price trackings found.</p>
+    <a href="{{ url_for('price_tracker') }}" class="btn" style="width: auto;">Add one now!</a>
+</div>
+{% endif %}  
+<div class="text-center" style="margin-top: 2rem;">
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="width: auto;">Return to Dashboard</a>
+</div>
+{% endblock %}
+

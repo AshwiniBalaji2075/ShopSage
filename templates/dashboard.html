@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="text-center">
+<h1><b>WELCOME😊, {{username}}!!!</b></h1>
+<p><B>Choose a module to get started.</B></p>
+</div>
+
+<div class="dashboard-grid">
+<div class="tile">
+<h3><b>PRICE COMPARISON💵</b></h3>
+<p>Compare prices across retailers.</p>
+<a href="{{ url_for('price_comparison') }}" class="btn" style="width: auto;">Open</a>
+</div>
+<div class="tile">
+<h3><b>FAKE REVIEW DETECTOR🕵🏻🧐</b></h3>
+<p>Check if product reviews are authentic.</p>
+<a href="{{ url_for('fake_review_detector') }}" class="btn" style="width: auto;">Open</a>
+</div>
+<div class="tile">
+<h3><b>PRICE TRACKER💹💰</b></h3>
+<p>Track prices and get email alerts.</p>
+<a href="{{ url_for('price_tracker') }}" class="btn" style="width: auto;">Open</a>
+</div>
+<div class="tile">
+<h3><b>CHATBOT ASSISTANT🤖</b></h3>
+<p>Ask questions and get instant help.</p>
+<a href="{{ url_for('chatbot') }}" class="btn" style="width: auto;">Open</a>
+</div>
+</div>
+
+<div class="text-center" style="margin-top: 2rem;">
+<a href="{{url_for('logout')}}" class="btn" style="width: auto; background-color: white;">LOGOUT</a>
+</div>
+{% endblock %}

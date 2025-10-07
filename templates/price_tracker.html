@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="card">
+<div class="text-center">
+<h2><b>PRICE TRACKER💹💰</b></h2>
+<p><b>Track product prices and get alerts when they drop.</b></p>
+</div>
+<form method="POST" style="max-width: 500px; margin: 1.5rem auto 0 auto;">
+<input type="text" name="product_name" placeholder="Product Name" required>
+<input type="number" name="desired_price" placeholder="Desired Price (₹)" step="0.01" required>
+<input type="email" name="email" placeholder="Your Email for Alerts" required>
+<button type="submit" class="btn">Track Price</button>
+</form>
+</div>
+
+<div class="text-center" style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+<a href="{{ url_for('trackings') }}" class="btn" style="width: auto; background-color: white;">View Active Trackings</a>
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="width: auto;">Return to Dashboard</a>
+</div>
+{% endblock %}

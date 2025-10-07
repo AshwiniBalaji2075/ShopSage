@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=12.0">
+<title>ShopSage</title>
+</head>
+<body>
+<header><a href="{{ url_for('dashboard') }}"><B>ShopSage🛍️🛒</B></a></header>
+<main class="container">
+{% block body %}{% endblock %}
+</main>
+</body>
+</html>

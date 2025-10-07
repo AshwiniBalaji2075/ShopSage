@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="card text-center">
+<h2><B>FAKE REVIEW DETECTOR🕵🏻🧐</B></h2>
+<p><B>Paste a product review below to check its authenticity.</B></p>
+<form method="post" style="margin-top: 1.5rem;">
+<textarea name="review" rows="5" placeholder="Paste review here..." required>{{ review or '' }}</textarea>
+<button type="submit" class="btn">Check Review</button>
+</form>
+
+{% if result %}
+<div style="margin-top:2rem; padding: 1rem; border-radius: 8px; background-color: var(--lavender-bg);">
+    <h3>Prediction Result: <strong>{{ result }}</strong></h3>
+</div>
+{% endif %}
+
+</div>
+
+<div class="text-center" style="margin-top: 2rem;">
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="width: auto;">Return to Dashboard</a>
+</div>
+{% endblock %}
