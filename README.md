@@ -1,13 +1,16 @@
-# Fake Review Detection System
-
-A Flask web application that detects fake reviews using machine learning.
-
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
-```bash
+
 # Clone repository
-git clone https://github.com/AshwiniBalaji2075/your-repo-name.git
+git clone https://github.com/AshwiniBalaji2075/ShopSage.git
 
 # Install dependencies
 pip install -r requirements.txt
+
+# 🚨 ADD THIS CRITICAL STEP:
+# Run the application
+python main.py
+
+# THEN open this in browser:
+# http://localhost:5000
